@@ -17,11 +17,6 @@ Todas las mascotas comparten características generales, pero cada tipo tiene un
 comportamiento diferente.
 */
 
-import mascotas.Mascota;
-import mascotas.Perro;
-import mascotas.Gato;
-import mascotas.Ave;
-
 import java.util.ArrayList;
 
 // Gestionamos toda la logica del sistema: registro y visualizacion de mascotas
@@ -84,6 +79,28 @@ public class GestorMascotas {
         }
 
         // Informamos si no se encontro ninguna mascota con ese ID
+        if (encontrada == false) {
+            System.out.println("Mascota no encontrada.");
+        }
+    }
+
+    // Buscamos una mascota por nombre y mostramos su informacion completa
+    public void buscarPorNombre(String nombreBuscado) {
+        System.out.println("--- BUSCAR POR NOMBRE ---");
+
+        // Recorremos la lista comparando el nombre con cada mascota
+        boolean encontrada = false;
+
+        for (Mascota m : listaMascotas) {
+            if (m.getNombre().equals(nombreBuscado)) {
+                // Mostramos la informacion completa de la mascota encontrada
+                m.mostrarInfo();
+                System.out.println("Sonido : " + m.hacerSonido());
+                encontrada = true;
+            }
+        }
+
+        // Informamos si no se encontro ninguna mascota con ese nombre
         if (encontrada == false) {
             System.out.println("Mascota no encontrada.");
         }
