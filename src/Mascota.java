@@ -61,4 +61,20 @@ public class Mascota {
     public void setEdad(int edad) {
         this.edad = edad;
     }
+
+    // Mostramos la información general de la mascota en consola
+    public void mostrarInfo() {
+        System.out.println("------------------------------");
+        System.out.println("ID     : " + id);
+        System.out.println("Nombre : " + nombre);
+        System.out.println("Edad   : " + edad + " año(s)");
+        System.out.println("Tipo   : " + this.getClass());
+        System.out.println("Sonido : " + hacerSonido());
+        System.out.println("------------------------------");
+    }
+
+    // Retornamos un sonido genérico, las subclases lo sobreescriben
+    public String hacerSonido() {
+        return "... sonido genérico ...";
+    }
 }
